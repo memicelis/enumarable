@@ -1,4 +1,4 @@
-require'./my_enumarable'
+require './my_enumarable'
 
 class MyList
   include MyEnumarable
@@ -12,21 +12,12 @@ class MyList
   end
 end
 
-irb> list = MyList.new(1, 2, 3, 4)
-=> #<MyList: @list=[1, 2, 3, 4]>
+list = MyList.new(1, 2, 3, 4)
 
-# Test #all?
-irb> list.all? {|e| e < 5}
-=> true
-irb> list.all? {|e| e > 5}
-=> false
+puts(list.all? { |e| e < 5 }) #=> true
+puts(list.all? { |e| e > 5 }) #=> false
 
-# Test #any?
-irb> list.any? {|e| e == 2}
-=> true
-irb> list.any? {|e| e == 5}
-=> false
+puts(list.any? { |e| e == 2 }) #=> true
+puts(list.any? { |e| e == 5 }) #=> false
 
-# Test #filter
-irb> list.filter {|e| e.even?}
-=> [2, 4]
+puts list.filter(&:even?) #=> [2, 4]
